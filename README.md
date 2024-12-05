@@ -4,12 +4,12 @@
   </a>
 </div>
 
-## Introduction
+## 🚩 Introduction
 The Heavy Shop is a full-stack Nuxt-based concept store specializing in heavy metal merchandise and apparel. I built this personal project as a way to extend my coding knowledge and familiarize myself with various modern technologies that are being used in the industry.
 
 The result was a well-polished web application with a minimalistic UI, an intuitive UX and a clean, stable, further scalable codebase. Learn more about the development journey, features and technical details [here](https://theheavyshop.vercel.app/about).
 
-## Quick Start
+## 🚀 Quick Start
 
 ### 1. Clone the project
 
@@ -30,7 +30,7 @@ pnpm install
 ```
 
 ### 4. Configure the project
-Create an **.env** file and provide the required environment variables (refer to the **.env.example** file).
+Create an `.env` file and provide the required environment variables (refer to the `.env.example` file).
 
 ```bash
 # You can generate a secret by running
@@ -60,7 +60,7 @@ BLOB_READ_WRITE_TOKEN=
 DATABASE_URL=
 ```
 
-After setting up your environment, update the **prisma/schema.prisma** file for development use.
+After setting up your environment, update the `prisma/schema.prisma` file for development use.
 
 ```prisma
 datasource db {
