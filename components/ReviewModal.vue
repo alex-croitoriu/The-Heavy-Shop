@@ -16,12 +16,13 @@ const errorMessage = ref()
 
 const bus = useEventBus('modal')
 bus.on(function(event, data) {
-    if (event === 'addReview' || event === 'editReview') {
+    if (['addReview', 'editReview'].includes(event)) {
 		action.value = event
 		isOpen.value = true
 		rating.value = hoverRating.value = data.rating
 		review.value = data.review
 		reviewId.value = data.id
+		errorMessage.value = null
 	}
 })
 
@@ -62,6 +63,7 @@ async function editReview() {
 		if (!error.value) {
 			await refreshNuxtData('item')
 			toast.success('Review edited successfully!')
+			errorMessage.value = null
 			isOpen.value = false
 		}
 	}
@@ -109,7 +111,7 @@ async function editReview() {
 							class="scrollbar h-24 px-3.5 py-2.5 w-full text-sm text-white outline-none hover:outline-none border-0 focus:ring-[1.5px] focus:ring-inset focus:ring-red-primary transition duration-200 bg-gray-primary focus:bg-gray-dark rounded-xl resize-none" 
 						/>
 					</div>
-					<Error> {{ errorMessage }} </Error>
+					<Error class="mx-auto"> {{ errorMessage }} </Error>
 					<Button v-if="action === 'addReview'" type="submit">
 						<IconsReview class="!size-4" />
 						<span> ADD REVIEW </span>

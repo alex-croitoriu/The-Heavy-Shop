@@ -8,7 +8,7 @@ const isOpen = defineModel()
 	<Teleport to="body">
 		<HeadlessTransitionRoot appear :show="isOpen" as="template">
 			<HeadlessDialog as="div" @close="() => isOpen = false" class="relative z-50">
-				<HeadlessTransitionChild 
+				<HeadlessTransitionChild
 					as="template" 
 					enter="duration-200 ease-out" 
 					enter-from="opacity-0" 
