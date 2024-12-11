@@ -113,12 +113,12 @@ async function register() {
                 </Button>
             </div>
         </form>
-
-        <Label class="mt-7 !ml-0 flex flex-wrap items-center justify-center gap-1">
+        
+        <p class="mt-6 mb-1 text-white text-sm font-extralight flex flex-wrap items-center justify-center gap-1">
             <span> Already have an account? </span>
             <NuxtLink to="/auth/login" class="font-normal text-red-primary hover:underline">
                 Log in
             </NuxtLink>
-        </Label>
+        </p>
     </AuthCard>
 </template>

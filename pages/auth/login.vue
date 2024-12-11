@@ -77,11 +77,11 @@ async function login(provider) {
                     >
                         <IconsKey class="text-white" />
                     </TextInput>
-                    <Label>
+                    <p class="text-white text-sm font-extralight my-1 ml-2">
                         <NuxtLink to="/auth/forgot-password" class="hover:underline">
                             Forgot your password?
                         </NuxtLink>
-                    </Label>
+                    </p>
                 </div>
                 <Error> {{ errorMessage }} </Error>
                 <Button 
@@ -92,6 +92,7 @@ async function login(provider) {
                 </Button>
             </div>
         </form>
+
         <div class="mt-6 flex flex-col items-center">
             <p class="text-white text-sm font-extralight my-1"> 
                 Or log in using 
@@ -113,11 +114,12 @@ async function login(provider) {
                 </button>
             </div>
         </div>
-        <Label class="mt-6 !ml-0 flex flex-wrap items-center justify-center gap-1">
+        
+        <p class="mt-6 mb-1 text-white text-sm font-extralight flex flex-wrap items-center justify-center gap-1">
             <span> Don't have an account yet? </span>
             <NuxtLink to="/auth/register" class="font-normal text-red-primary hover:underline">
                 Register
             </NuxtLink>
-        </Label>
+        </p>
     </AuthCard>
 </template>
