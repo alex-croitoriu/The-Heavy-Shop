@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
 
     const runtimeConfig = useRuntimeConfig()
 
-    const options = {
+    const orderByOptions = {
         'price': {
             price: direction
         },
@@ -15,9 +15,14 @@ export default defineEventHandler(async (event) => {
             }
         }
     }[sortBy as string]
+
+    const paginationOptions = sortBy === 'rating' ? {} : {
+        take: runtimeConfig.public.perPage,
+        skip: runtimeConfig.public.perPage * ((page as number ?? 1) - 1)
+    }
     
     let items = await prisma.item.findMany({
-        orderBy: options as any,
+        orderBy: orderByOptions as any,
         include: {
             reviews: true
         },
@@ -37,8 +42,7 @@ export default defineEventHandler(async (event) => {
                 }
             ]
         },
-        take: runtimeConfig.public.perPage,
-        skip: runtimeConfig.public.perPage * ((page as number ?? 1) - 1)
+        ...paginationOptions as any
     })
 
     const count = await prisma.item.count({
@@ -64,8 +68,10 @@ export default defineEventHandler(async (event) => {
         items[index] = { ...item, rating: getItemRating(item) }
     })
 
-    if (sortBy === 'rating')
+    if (sortBy === 'rating') {
         items?.sort((a: any, b: any) => direction === 'asc' ? a.rating - b.rating : b.rating - a.rating)
+        items = items.slice(runtimeConfig.public.perPage * ((page as number ?? 1) - 1), runtimeConfig.public.perPage * ((page as number ?? 1)))
+    }
 
     return {
         items: items,
