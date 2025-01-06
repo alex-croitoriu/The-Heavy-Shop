@@ -4,7 +4,7 @@
             <Separator class="!py-2 !pt-0" />
             <div class="justify-between mx-4 md:mx-6 gap-2 h-14 flex items-center -mt-2">
                 <p class="text-sm md:text-base font-light underline-effect">
-                    © 2024 Alex Croitoriu
+                    © 2025 Alex Croitoriu
                 </p>
                 <div class="flex items-center gap-2.5 md:gap-3.5">
                     <NuxtLink 
